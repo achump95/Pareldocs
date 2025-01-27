@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   Box,
   Flex,
@@ -11,54 +11,98 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Image,
+  Container,
 } from "@chakra-ui/react";
 import logoImage from "../assets/images/montana-logo.svg";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import hamburgerIcon from "../assets/images/hamburger-icon.svg"; // Custom Hamburger Icon
+import closeIcon from "../assets/images/close-icon.svg"; // Custom Close Icon
 
 function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       {/* Navbar */}
+
       <Flex
         as="nav"
         position="fixed"
         top="0"
         width="100%"
-        bg="transparent"
         zIndex="1000"
         align="center"
         justify="space-between"
-        padding="1rem 2rem"
-        backdropFilter="blur(10px)" // Optional for glassmorphism effect
+        padding={isScrolled ? "1.5rem 2rem" : "3rem 2rem"}
+        bg="transparent"
+        backdropFilter={isScrolled ? "blur(10px)" : "blur(0px)"}
+        transition="all 0.3s ease-in-out"
       >
-        {/* Logo in the Center */}
-        <Flex flex="1" justify="center">
-          <Image
-            src={logoImage} // Replace with your logo URL
-            alt="Logo"
-            height="50px" // Adjust the height as needed
-            objectFit="contain"
-          />
-        </Flex>
+        <Container maxW='1340' color='white'>
+          <Flex>
 
-        {/* Drawer Button on the Right */}
-        <IconButton
-          aria-label={isOpen ? "Close Menu" : "Open Menu"}
-          icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-          variant="ghost"
-          size="lg"
-          onClick={isOpen ? onClose : onOpen}
-          position="absolute"
-          right="1rem"
-        />
-      </Flex>
+            {/* Logo in the Center */}
+
+            <Flex flex="1" justify="center">
+              <Image
+                src={logoImage} // Replace with your logo URL
+                alt="Logo"
+                minW="150px"
+                maxW="500px"
+                width={isScrolled ? "30%" : "40%"} // Shrink logo on scroll
+                objectFit="contain"
+                transition="width 0.3s ease-in-out"
+                align="center"
+              />
+            </Flex>
+
+            {/* Custom Drawer Button on the Right */}
+            <IconButton
+              aria-label={isOpen ? "Close Menu" : "Open Menu"}
+              icon={
+                isOpen ? (
+                  <Image
+                    width={isScrolled ? "50%" : "90%"}
+                    transition="width 0.3s ease-in-out"
+                    src={closeIcon} alt="Close Menu" />
+                ) : (
+                  <Image src={hamburgerIcon}
+                    alt="Open Menu"
+                    maxW="100px"
+                    transition="width 0.3s ease-in-out"
+                    width={isScrolled ? "50%" : "90%"} />
+                )
+              }
+              variant="ghost"
+              size="lg"
+              onClick={isOpen ? onClose : onOpen}
+
+              right="1rem"
+            />
+          </Flex>
+        </Container>
+      </Flex >
 
       {/* Drawer */}
-      <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
+      < Drawer isOpen={isOpen} placement="right" onClose={onClose} size={'md'}>
         <DrawerOverlay />
-        <DrawerContent>
+        <DrawerContent p="12">
           <DrawerCloseButton />
           <DrawerHeader>Menu</DrawerHeader>
           <DrawerBody>
@@ -78,7 +122,7 @@ function Navbar() {
             </Box>
           </DrawerBody>
         </DrawerContent>
-      </Drawer>
+      </Drawer >
     </>
   );
 }

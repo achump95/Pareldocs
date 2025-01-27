@@ -1,10 +1,20 @@
 import React from "react";
-import { Box, Flex, Heading, Text, Container } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Container, Image } from "@chakra-ui/react";
+import leafPngLeft from "../assets/images/leafpngleft.png";
+import leafPngright from "../assets/images/leaf-png-right.png"; // Custom Hamburger Icon
 
 function TwoPartContentSection() {
     return (
-        <Box w="100%" overflowX="hidden">
-            <Container maxW="6xl" px={[4, 6, 8]} py="12">
+        <Box w="100%" overflowX="hidden" position="relative" bg={'brand.200'}>
+            <Image
+                position="absolute"
+                src={leafPngLeft}
+                width="30%"
+                zIndex='0'
+            >
+
+            </Image>
+            <Container maxW="6xl" px={[4, 6, 8]} py="40">
                 <Flex
                     direction={["column", "column", "row"]} // Stack vertically on small screens, side-by-side on larger screens
                     align="center"
@@ -13,27 +23,30 @@ function TwoPartContentSection() {
                 >
                     {/* Left Section: Heading and Subheading */}
                     <Box flex="1" textAlign={["center", "center", "left"]}>
-                        <Heading as="h2" size="xl" mb="4">
-                            Heading Title
+                        <Heading as="h4" size='md' >Welcome</Heading>
+                        <Heading as="h2" font='80px' mb="4" fontWeight={'400'}>
+                            Where nature meets luxury
                         </Heading>
-                        <Text fontSize="lg" color="gray.600">
-                            This is the subheading that provides additional context for the
-                            section. It can be descriptive and engaging to draw attention.
-                        </Text>
+
                     </Box>
 
                     {/* Right Section: Paragraph */}
                     <Box flex="1" textAlign={["center", "center", "left"]}>
                         <Text fontSize="md" color="gray.700" lineHeight="1.8">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                            laoreet orci non sapien tincidunt, non auctor felis tempus. Proin
-                            vehicula, mauris nec facilisis vehicula, ipsum mi viverra risus,
-                            ut varius velit erat ac risus. Suspendisse potenti. Curabitur
-                            suscipit viverra nunc vel aliquet.
+                            Montana Estates is a visionary address redefining sustainable luxury living in India. Inspired by the grandeur of the mountains, it offers a harmonious retreat amidst lush greenery. Conveniently located near Calicut city, Montana Estates brings together the peace of mountain living with the convenience of urban life.
                         </Text>
                     </Box>
                 </Flex>
             </Container>
+            <Image
+                position="absolute"
+                right="0"
+                bottom="0"
+                src={leafPngright}
+                width="30%"
+                zIndex="0"
+            >
+            </Image>
         </Box>
     );
 }

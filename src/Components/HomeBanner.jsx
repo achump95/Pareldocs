@@ -17,11 +17,11 @@ function homeBanner() {
             justifyContent="center"
         >
             <Text
-                fontSize="5xl" // Adjust the font size
-                fontWeight="bold"
+                fontSize="80" // Adjust the font size
+
                 color="white"
                 textAlign="center"
-
+                /* className="playfair-display" */
                 textShadow="2px 2px 8px rgba(0, 0, 0, 0.7)" // Adds some depth to the text
             >
                 You have arrived.
