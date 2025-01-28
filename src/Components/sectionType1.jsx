@@ -14,7 +14,7 @@ function TwoPartContentSection() {
             >
 
             </Image>
-            <Container maxW="6xl" px={[4, 6, 8]} py="40">
+            <Container maxW="8xl" py="60">
                 <Flex
                     direction={["column", "column", "row"]} // Stack vertically on small screens, side-by-side on larger screens
                     align="center"
@@ -23,16 +23,16 @@ function TwoPartContentSection() {
                 >
                     {/* Left Section: Heading and Subheading */}
                     <Box flex="1" textAlign={["center", "center", "left"]}>
-                        <Heading as="h4" size='md' >Welcome</Heading>
-                        <Heading as="h2" font='80px' mb="4" fontWeight={'400'}>
-                            Where nature meets luxury
+                        <Heading as="h4" size='md' color='brand.600' fontWeight={'300'}  >WELCOME</Heading>
+                        <Heading as="h2" fontSize='80px' color='brand.600' mb="4" fontWeight={'400'}>
+                            Where nature  meets luxury
                         </Heading>
 
                     </Box>
 
                     {/* Right Section: Paragraph */}
                     <Box flex="1" textAlign={["center", "center", "left"]}>
-                        <Text fontSize="md" color="gray.700" lineHeight="1.8">
+                        <Text lineHeight="1.8" color={'brand.600'}>
                             Montana Estates is a visionary address redefining sustainable luxury living in India. Inspired by the grandeur of the mountains, it offers a harmonious retreat amidst lush greenery. Conveniently located near Calicut city, Montana Estates brings together the peace of mountain living with the convenience of urban life.
                         </Text>
                     </Box>
