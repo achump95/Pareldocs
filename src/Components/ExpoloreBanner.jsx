@@ -10,18 +10,18 @@ const ExploreBnner = () => {
             bgSize="cover"
             bgPosition="center"
             bgRepeat="no-repeat"
-            height="100vh" // Full screen height
+            height="90vh" // Full screen height
             width="100%"
         >
             {/* Overlay for better contrast */}
-            <Box
+            {/* <Box
                 position="absolute"
                 top="0"
                 left="0"
                 width="100%"
                 height="100%"
                 bg="rgba(0, 0, 0, 0.5)" // Semi-transparent overlay
-            ></Box>
+            ></Box> */}
 
             {/* Content */}
             <Container
@@ -32,15 +32,16 @@ const ExploreBnner = () => {
                 justifyContent="center"
             >
                 <Button
-                    size="lg"
+
+                    fontSize={["16px", "20px", "24px"]}
                     color='brand.600'
                     colorScheme="brand"
                     bg="brand.300"
                     _hover={{ bg: "brand.500", color: 'brand.200' }}
-                    /* fontWeight="bold" */
+
                     px="8"
                     py="6"
-                    letterSpacing='2.4px'
+                    letterSpacing={['1px', '1.4px', '2.4px']}
                     zIndex="1" // Ensures the button is above the overlay
                 >
                     EXPLORE THE DEVELOPMENT

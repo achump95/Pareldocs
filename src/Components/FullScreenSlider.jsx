@@ -1,33 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Image, Flex } from '@chakra-ui/react';
 
 const images = [
     'https://www.malabardevelopers.com/wp-content/uploads/2024/07/hero-img-desk.jpg',
     'https://www.malabardevelopers.com/wp-content/uploads/2024/07/MontanaG5.jpg',
-    'https://www.malabardevelopers.com/wp-content/uploads/2024/07/MontanaG8.jpg',
+    'https://www.malabardevelopers.com/wp-content/uploads/2024/07/MontanaG6.jpg',
 ];
 
 function FullScreenImageSlider() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    // Function to go to the next slide
+    const goToNextSlide = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    };
+
+    // Function to go to a specific slide
     const goToSlide = (slideIndex) => {
         setCurrentIndex(slideIndex);
     };
 
+    // Auto-scroll functionality
+    useEffect(() => {
+        const interval = setInterval(() => {
+            goToNextSlide();
+        }, 5000); // Change slide every 5 seconds
+
+        // Clear interval when component unmounts
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <Box
             position="relative"
-            height="100vh"
-            overflow="hidden" // Prevent any overflow
+            height="85vh"
+            overflow="hidden"
             margin="0"
             padding="0"
             sx={{
-                // Additional styles to ensure no overflow
                 "html, body": {
                     margin: 0,
                     padding: 0,
-                    overflowX: "hidden",
-                    width: "100%",
+                    overflowX: 'hidden',
+                    width: '100%',
                 },
             }}
         >
@@ -38,14 +53,14 @@ function FullScreenImageSlider() {
                 objectFit="cover"
                 width="100%"
                 height="100%"
-                display="block" // Ensures no gaps or unexpected behaviors
+                display="block"
             />
 
             {/* Navigation Dots */}
             <Flex
                 justifyContent="center"
                 position="absolute"
-                bottom="20px"
+                bottom="50px"
                 width="100%"
                 zIndex="10"
             >
@@ -53,9 +68,9 @@ function FullScreenImageSlider() {
                     <Box
                         key={index}
                         cursor="pointer"
-                        height="12px"
-                        width="12px"
-                        margin="0 5px"
+                        height="20px"
+                        width="20px"
+                        margin="0 8px"
                         backgroundColor={
                             currentIndex === index ? 'white' : 'rgba(255, 255, 255, 0.5)'
                         }

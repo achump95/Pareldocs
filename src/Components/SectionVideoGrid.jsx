@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import {
     Box,
     Grid,
-    Heading,
     Text,
     Container,
     IconButton,
     Modal,
+    Image,
     ModalOverlay,
     ModalContent,
     ModalBody,
@@ -15,8 +15,8 @@ import {
 } from "@chakra-ui/react";
 import videoCoverOne from "../assets/images/couples.png";
 import videoCoverTwo from "../assets/images/fruits.png";
-import videoCoverThree from "../assets/images/lady.svg";
-import { TriangleDownIcon } from "@chakra-ui/icons"; // Replace this with your custom play icon if needed.
+/* import videoCoverThree from "../assets/images/lady.png"; */
+import VideoPlayIcon from "../assets/images/video-play-button.svg"; // Replace this with your custom play icon if needed.
 
 const VideoGrid = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,19 +26,19 @@ const VideoGrid = () => {
         {
             src: "https://www.w3schools.com/html/mov_bbb.mp4",
             poster: videoCoverOne,
-            title: "HEADING 1",
+            title: "HEADING ",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             src: "https://www.w3schools.com/html/mov_bbb.mp4",
             poster: videoCoverTwo,
-            title: "HEADING 2",
+            title: "HEADING ",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             src: "https://www.w3schools.com/html/mov_bbb.mp4",
-            poster: videoCoverThree,
-            title: "HEADING 3",
+            poster: videoCoverOne,
+            title: "HEADING ",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
     ];
@@ -53,6 +53,9 @@ const VideoGrid = () => {
             {/* Video Grid Section */}
             <Box as="section" py="200" bg="brand.200">
                 <Container maxW="8xl">
+                    <Text as="h4" mb="20" letterSpacing="1.3px">
+                        LIFE IN MONTANA
+                    </Text>
                     <Grid
                         templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
                         gap={10}
@@ -63,7 +66,7 @@ const VideoGrid = () => {
                                 <Box
                                     position="relative"
                                     pb="75%" // 4:3 aspect ratio
-                                    height="0"
+                                    height={['300', '400', '500']}
                                     bg="gray.100"
                                     overflow="hidden"
                                     borderRadius="md"
@@ -86,8 +89,8 @@ const VideoGrid = () => {
                                     {/* Play Icon */}
                                     <IconButton
                                         aria-label="Play Video"
-                                        icon={<TriangleDownIcon />}
-                                        colorScheme="teal"
+                                        icon={<Image src={VideoPlayIcon} alt="Map Icon" boxSize={{ base: "8", md: "10" }} />}
+                                        bg="transparent"
                                         borderRadius="full"
                                         size="lg"
                                         position="absolute"
@@ -98,11 +101,11 @@ const VideoGrid = () => {
                                 </Box>
 
                                 {/* Heading and Description */}
-                                <Box color="brand.600" mt="4">
-                                    <Heading as="h3" size="md" mb="2" letterSpacing="1.3px">
+                                <Box color="brand.600" mt={["10", "14", "16"]}>
+                                    <Text as="h4" size="md" mb="6" letterSpacing="1.3px">
                                         {video.title}
-                                    </Heading>
-                                    <Text fontSize="md" color="gray.600">
+                                    </Text>
+                                    <Text as="p" mb="6" >
                                         {video.description}
                                     </Text>
                                 </Box>

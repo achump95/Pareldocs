@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Heading, HStack, Text, Container, Image } from "@chakra-ui/react";
+import { Box, Grid, HStack, Text, Container, Image } from "@chakra-ui/react";
 
 // Sample image URLs for the amenities icons
 import helicopter from "../assets/images/helicopter-ico.svg";
@@ -34,23 +34,23 @@ const AmenitiesSection = () => {
         <Box as="section" py="150" bg={'brand.600'}>
             <Container maxW="8xl">
                 {/* Heading */}
-                <Box mb="14">
-                    <Heading size="md" fontWeight='300' mb="2" color='brand.300'>
+                <Box mb={["18px", "50px"]}>
+                    <Text as="h4" color='brand.300'>
                         AMENITIES
-                    </Heading>
+                    </Text>
 
                 </Box>
 
                 {/* Amenities Grid */}
                 <Grid
                     templateColumns={{ base: "1fr", md: "1fr 1fr", lg: "repeat(4, 1fr)" }}
-                    gap={6}
+                    gap={['2', '2', '6']}
                 >
                     {amenities.map((amenity, index) => (
                         <HStack
                             key={index}
                             /* bg="white" */
-                            mb='38'
+                            mb={["10px", "15px", "20px", "30px"]}
                             /* borderRadius="md" */
                             /*  boxShadow="sm" */
                             /* _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
@@ -61,11 +61,11 @@ const AmenitiesSection = () => {
                             <Image
                                 src={amenity.icon}
                                 alt={amenity.label}
-                                boxSize="20"
+                                boxSize={["14", "16", "20"]}
                                 objectFit="contain"
                             />
                             {/* Label */}
-                            <Text fontSize="24px" ml='5' fontWeight='200' color="brand.300">
+                            <Text as="p" ml='3' color="brand.300">
                                 {amenity.label}
                             </Text>
                         </HStack>
