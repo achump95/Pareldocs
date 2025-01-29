@@ -4,6 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Home from "./Pages/Home";
 import { extendTheme } from "@chakra-ui/react";
 /* import { color } from "framer-motion"; */
+import Details from "./Pages/Details";
 
 const themeGreen = extendTheme({
   fonts: {
@@ -63,7 +64,8 @@ const themeGreen = extendTheme({
 function App() {
   return (
     <ChakraProvider theme={themeGreen}>
-      <Home />
+      {/* <Home /> */}
+      <Details />
     </ChakraProvider>
   );
 }

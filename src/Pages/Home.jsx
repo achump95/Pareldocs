@@ -9,7 +9,7 @@ import VideoGrid from "../Components/SectionVideoGrid";
 import SectionEnquiry from "../Components/SectionEnquiry";
 import FooterSection from "../Components/SectionFooter";
 import FloatingMapButton from "../Components/FloatingMapButton";
-import SectionOverlayBanner from "../Components/SectionOverlayBanner";
+/* import SectionOverlayBanner from "../Components/SectionOverlayBanner"; */
 
 /* import Nav1 from "../Components/Nav1"; */
 
@@ -26,7 +26,9 @@ const Home = () => {
         <SectionEnquiry />
         <FooterSection />
         <FloatingMapButton />
-        <SectionOverlayBanner />
+        {/* <SectionOverlayBanner /> */}
+
+
     </Box>
 }
 
