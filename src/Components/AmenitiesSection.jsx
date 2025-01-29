@@ -49,22 +49,15 @@ const AmenitiesSection = () => {
                     {amenities.map((amenity, index) => (
                         <HStack
                             key={index}
-                            /* bg="white" */
                             mb={["10px", "15px", "20px", "30px"]}
-                            /* borderRadius="md" */
-                            /*  boxShadow="sm" */
-                            /* _hover={{ boxShadow: "md", transform: "scale(1.02)" }}
-                            transition="all 0.2s" */
                             align="center"
                         >
-                            {/* Icon (Image) */}
                             <Image
                                 src={amenity.icon}
                                 alt={amenity.label}
                                 boxSize={["14", "16", "20"]}
                                 objectFit="contain"
                             />
-                            {/* Label */}
                             <Text as="p" ml='3' color="brand.300">
                                 {amenity.label}
                             </Text>

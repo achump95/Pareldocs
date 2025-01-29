@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Heading, Link, List, ListItem, Image, Text, Container, textDecoration } from "@chakra-ui/react";
+import { Box, Flex, Link, List, ListItem, Image, Container } from "@chakra-ui/react";
 import footerLogo from "../assets/images/malabar-logo.svg"; // Replace with your logo path
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 

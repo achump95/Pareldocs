@@ -53,7 +53,7 @@ const themeGreen = extendTheme({
       p: {
         color: "brand.600",
         fontSize: "clamp(1rem, 0.734rem + 0.8511vw, 1.5rem);",
-        lineHeight: "1.8",
+        lineHeight: "1.6",
         letterSpacing: "0.56px",
       },
     },
