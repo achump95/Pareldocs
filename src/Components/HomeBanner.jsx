@@ -19,8 +19,7 @@ function homeBanner() {
             <Text
                 as='h1'
                 textAlign="center"
-            /* className="playfair-display" */
-            /* textShadow="2px 2px 8px rgba(0, 0, 0, 0.7)" */
+
             >
                 You have arrived.
             </Text>

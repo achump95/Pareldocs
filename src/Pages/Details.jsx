@@ -5,12 +5,14 @@ import arrowDown from "../assets/images/arrow-down.svg";
 import helicopter from "../assets/images/helicopter-ico.svg";
 import innerLeafRight from "../assets/images/inner-leaf-element.png";
 import SectionFooter from "../Components/SectionFooter";
+import NavBar from "../Components/NavBar";
 
 
 const GreenSection = () => {
     return (
         <Box>
-            <Box bg="brand.600" position="relative" color="white" p='6'>
+            <NavBar />
+            <Box bg="brand.600" position="relative" color="white" >
                 {/* Image - Positioned on the Top */}
                 <Box maxH="50vh" position="relative">
                     <Box

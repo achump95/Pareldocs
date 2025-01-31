@@ -14,7 +14,7 @@ const Footer = () => {
         },
     }
     return (
-        <Box as="footer" bg="brand.200" color="white" py="130px">
+        <Box as="footer" bg="brand.300" color="white" py="130px">
             <Container maxW="8xl" >
                 <Flex
                     justify="space-between"

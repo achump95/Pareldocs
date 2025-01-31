@@ -4,7 +4,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import Home from "./Pages/Home";
 import { extendTheme } from "@chakra-ui/react";
 /* import { color } from "framer-motion"; */
-import Details from "./Pages/Details";
+import Faq from "./Pages/Faq";
 
 const themeGreen = extendTheme({
   fonts: {
@@ -42,6 +42,12 @@ const themeGreen = extendTheme({
         fontSize: "clamp(2rem, 1.1702rem + 4.2553vw, 5rem) !important",
         lineHeight: "1.2",
       },
+      h3: {
+        color: "brand.600",
+        fontSize: "clamp(1.875rem, 0.8777rem + 3.1915vw, 3.75rem);",
+        lineHeight: "1.2",
+        letterSpacing: "2.4px",
+      },
       h4: {
         color: "brand.600",
         fontSize: "clamp(1rem, 0.734rem + 0.8511vw, 1.5rem);",
@@ -65,7 +71,8 @@ function App() {
   return (
     <ChakraProvider theme={themeGreen}>
       {/* <Home /> */}
-      <Details />
+      {/* <Details /> */}
+      {<Faq />}
     </ChakraProvider>
   );
 }
